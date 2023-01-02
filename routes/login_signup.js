@@ -76,6 +76,7 @@ router.post("/sign-up", async (req, res) => {
     await Users.create({ userid, email, nickname, password, phone });
     res.status(201).send({});
 });
+
 // 로그인 API mysql
 
 router.post("/sign-in", async (req, res) => {
