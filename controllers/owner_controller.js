@@ -15,7 +15,7 @@ class OwnerController {
         console.log(status)
         await this.ownerservice.updateStatus(status);
 
-        return res.status(200).send({"msg": "수정 성공 !"});
+        return res.status(200).json({"step": "상태 업데이트 성공 !"});
     }
 };
 

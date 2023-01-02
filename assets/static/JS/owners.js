@@ -8,9 +8,18 @@ function modal_open() {
     $(document).mouseup(function (e) {
         if($(".modal").has(e.target).length === 0) {
             $(".modal").hide();
-        }
-    })
-    
+        };
+    });
+};
+
+function status_err() {
+   $(".err_modal").fadeIn();
+
+   $(document).mouseup(function (e) {
+        if($(".err_modal").has(e.target).length === 0) {
+            $(".err_modal").hide();
+        };
+   });
 };
 
 // 상태 조회
@@ -62,7 +71,6 @@ function create_status(status) {
         },
         dataType: "json",
         success: function (response) {
-            alert(response['msg']);
             window.location.reload();
         },
     });
@@ -81,8 +89,18 @@ function update_status(status) {
         },
         dataType: "json",
         success: function (response) {
-            alert(response['msg']);
-            window.location.reload();
+            if (value === '수거 하기') {
+                $(".err_modal1").fadeIn();
+
+                $(document).mouseup(function (e) {
+                        if($(".err_modal1").has(e.target).length === 0) {
+                            $(".err_modal1").hide();
+                            window.location.reload();
+                        };
+                })
+            }else {
+                window.location.reload();
+            }
         },
     });
 };

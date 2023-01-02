@@ -21,54 +21,69 @@
         일석삼조
     </header>
     
-<div class="modal">
-  <div class="modal_content">
-    <div class="modal_title">
-        라쿤표 세탁 신청서
+    <div class="modal">
+        <div class="modal_content">
+            <div class="modal_title">
+                라쿤표 세탁 신청서
+            </div>
+            <div class="modal_top">
+                <div class="order_image">
+                    이미지
+                </div>
+                <div class="order_content">
+                    <div class="content_body">
+                        이름 : 
+                    </div>
+                    <div class="content_body">
+                        전화번호 : 
+                    </div>
+                    <div class="content_body">
+                        주소 : 
+                    </div>
+                    <div class="content_body">
+                        요청 내용 : 
+                    </div>
+                </div>
+            </div>
+            <div class="err_modal">
+                <div class="err_body">
+                    <div class="err_msg">
+                        수거하기만 가능합니다.
+                    </div>
+                </div>
+            </div>
+            <div class="err_modal1">
+                <div class="err_body1">
+                    <div class="err_msg1">
+                        주문 완료! <br><br>
+                        손님의 세탁물을 수거해 주세요~
+                    </div>
+                </div>
+            </div>
+            <div class="modal_button">
+                <div class="button_body">
+                    <button value="수거 하기" onclick="update_status(this);" class="button_content">
+                        수거 하기
+                    </button>
+                </div>
+                <div class="button_body">
+                    <button onclick="status_err();"  class="button_content">
+                        수거 완료
+                    </button>
+                </div>
+                <div class="button_body">
+                    <button onclick="status_err();"  class="button_content">
+                        배송중
+                    </button>
+                </div>
+                <div class="button_body">
+                    <button onclick="status_err();"  class="button_content">
+                        배송 완료
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal_top">
-        <div class="order_image">
-            이미지
-        </div>
-        <div class="order_content">
-            <div class="content_body">
-                이름 : 
-            </div>
-            <div class="content_body">
-                전화번호 : 
-            </div>
-            <div class="content_body">
-                주소 : 
-            </div>
-            <div class="content_body">
-                요청 내용 : 
-            </div>
-        </div>
-    </div>
-    <div class="modal_button">
-        <div class="button_body">
-            <button value="수거 하기" onclick="update_status(this);" class="button_content">
-                수거 하기
-            </button>
-        </div>
-        <div class="button_body">
-            <button value="수거 완료" onclick="update_status(this);"  class="button_content">
-                수거 완료
-            </button>
-        </div>
-        <div class="button_body">
-            <button value="배송중" onclick="update_status(this);"  class="button_content">
-                배송중
-            </button>
-        </div>
-        <div class="button_body">
-            <button value="배송 완료" onclick="update_status(this);"  class="button_content">
-                배송 완료
-            </button>
-        </div>
-    </div>
-  </div>
-</div>
     <div class="owner-body">
         <div class="body-top">
             <div class="point">
