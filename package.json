@@ -1,7 +1,6 @@
 {
   "name": "3_project",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -27,5 +26,7 @@
   "devDependencies": {
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

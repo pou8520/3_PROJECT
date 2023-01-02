@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets\style\login&signup.css') }}">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="form_all">
+        <div id="form_inbox">
+            <!-- 회원가입 페이지 -->
+            <div id="form_signup">
+                <h3>회원가입</h3>
+                <div>
+                    <label for="name">UserID</label>
+                    <input type="text" name="name" id="name" placeholder="Name">
+
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password"
+                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+                    <label for="password">Re Password</label>
+                    <input type="password" name="password" id="re_password"
+                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+                    <label for="nickname">Nickname</label>
+                    <input type="text" name="nickname" id="nickname" placeholder="nickname">
+
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+
+
+
+                    <div id="btn_1">
+                        <button type="button" onclick="signup_click()"
+                            style="background-color:#80a4ff">회원가입</button><br>
+                        <button onclick="window.location.href='/'" type="button" id="login_btn">로그인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
