@@ -1,22 +1,22 @@
-const { Users } = require('../models');
+// const { Users } = require('../models');
 
-class UserRepository {
-    findAllUser = async () => {
-        const users = await this.usersModel.findAll();
+// class UserRepository {
+//     findAllUser = async () => {
+//         const users = await this.usersModel.findAll();
 
-        return users;
-    };
-    createUser = async (nickname, password, email) => {
-        const createUserData = await Users.create({
-            email,
-            nickname,
-            password,
-        });
+//         return users;
+//     };
+//     createUser = async (nickname, password, email) => {
+//         const createUserData = await Users.create({
+//             email,
+//             nickname,
+//             password,
+//         });
 
-        return createUserData;
-    };
-}
+//         return createUserData;
+//     };
+// }
 
 
 
-module.exports = UserRepository;
+// module.exports = UserRepository;

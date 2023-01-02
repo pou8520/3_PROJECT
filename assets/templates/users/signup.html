@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='assets\static\css\users\main.css') }}">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"
+  ></script>
 </head>
 <style>
 
@@ -23,7 +28,7 @@
                 <h3>회원가입</h3>
                 <div>
                     <label for="name">UserID</label>
-                    <input type="text" name="name" id="name" placeholder="Name">
+                    <input type="text" name="name" id="userid" placeholder="Name">
 
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password"
@@ -57,7 +62,36 @@
         </div>
     </div>
     <script>
+        function signup_click() {
+            const userid = $("#userid").val();
+            const password = $("#password").val();
+            const re_password = $("#re_password").val();
+            const nickname = $("#nickname").val();
+            const phone = $("#phone").val();
+            const email = $("#email").val();
 
+            $.ajax({
+                type: "POST",
+                url: "/api/sign-up",
+                data: {
+                    userid: userid,
+                    password: password,
+                    confirmPassword: re_password,
+                    email: email,
+                    phone: phone,
+                    nickname: nickname,
+                },
+                success: function (response) {
+                    alert("회원가입을 축하합니다", function () {
+                        window.location.replace("/")
+                    })
+                },
+                erroer: function (error) {
+                    alert("에러입니다")
+                }
+            })
+
+        }
     </script>
 </body>
 
