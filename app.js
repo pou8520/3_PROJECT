@@ -1,13 +1,17 @@
 const express = require('express');
+
+
+const orderRouter = require("./routes/order_router")
+const app = express();
+
+const router = require('./routes')
 require('dotenv').config();
 
 
-const orderRouter = require("./routes/orders")
-const app = express();
 
+app.use('/api',express.json(), express.urlencoded({extended: false}), router)
+app.use('/orders', orderRouter);
 
-app.use(express.json());  //JSON 형태의 데이터 처리하기 위한 설정
-app.use('/orders', ordersRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`${process.env.PORT} 포트가 열렸어요 `);
