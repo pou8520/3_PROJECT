@@ -28,17 +28,17 @@ router.post("/sign-up", async (req, res) => {
         return;
     }
 
-    const existsUsers2 = await User.findAll({
-        where: {
-            [Op.or]: [{ nickname }, { password }],
-        },
-    });
-    if (existsUsers2.length) {
-        res.status(400).send({
-            errorMessage: "비밀번호 안에 닉네임을 포합하지마세요.",
-        });
-        return;
-    }
+    // const existsUsers2 = await User.findAll({
+    //     where: {
+    //         [Op.or]: [{ nickname }, { password }],
+    //     },
+    // });
+    // if (existsUsers2.length) {
+    //     res.status(400).send({
+    //         errorMessage: "비밀번호 안에 닉네임을 포합하지마세요.",
+    //     });
+    //     return;
+    // }
     const existsUsers3 = await User.findAll({
         where: {
             [Op.or]: [{ nickname }],

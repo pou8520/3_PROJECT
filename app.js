@@ -13,12 +13,11 @@ app.use(express.json());
 
 
 app.use(express.json(), express.urlencoded({ extended: false }), [router]);
-app.use('/sign-up', signupRouter);
-app.use('/sign-in', signinRouter);
+app.use(signupRouter);
+app.use(signinRouter);
 
 
 
 app.listen(process.env.PORT, () => {
     console.log(`${process.env.PORT} 포트가 열렸어요 `);
 });
-

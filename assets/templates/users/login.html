@@ -34,7 +34,10 @@
                     <div id="btn_1">
                         <button type="button" onclick=login_click()>로그인</button>
 
-                        <button type="button" id="signup_btn">회원가입</button>
+                        <button
+                         onclick="window.location.href='/templates/users/signup.html'" type="button" id="signup_btn">
+                        회원가입
+                    </button>
                     </div>
                 </form>
             </div>
@@ -66,7 +69,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/sign-in/sign-in",
+                url: "/sign-in",
                 // data: JSON.stringify(data),
                 data: {
                     userid: userid,
