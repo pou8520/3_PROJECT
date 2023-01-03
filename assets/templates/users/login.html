@@ -44,7 +44,25 @@
     </footer>
 
     <script>
-
+        function login_click() {
+            let userid = $('#username').val()
+            let password = $('#password').val()
+            $.ajax({
+                type: "POST",
+                url: "/api/sign-in",
+                data: {
+                    userid: userid,
+                    password: password,
+                },
+                success: function (response) {
+                    localStorage.setItem("token", response.token);
+                    window.location.replace("/");
+                },
+                error: function (error) {
+                    alert("로그인 실패")
+                }
+            })
+        }
     </script>
 
 </body>

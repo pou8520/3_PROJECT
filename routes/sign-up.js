@@ -73,31 +73,8 @@ router.post("/sign-up", async (req, res) => {
         return;
     }
 
-    await Users.create({ userid, email, nickname, password, phone });
+    await User.create({ userid, email, nickname, password, phone });
     res.status(201).send({});
-});
-
-// 로그인 API mysql
-
-router.post("/sign-in", async (req, res) => {
-    const { userid, password } = req.body;
-
-    const user = await User.findOne({
-        where: {
-            userid,
-        },
-    });
-
-    if (!user || password !== user.password) {
-        res.status(400).send({
-            errorMessage: "아이디 또는 패스워드가 틀렸습니다.",
-        });
-        return;
-    }
-
-    res.send({
-        token: jwt.sign({ id: user.id }, "customized-secret-key"),
-    });
 });
 
 module.exports = router;
