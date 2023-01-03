@@ -74,7 +74,7 @@ router.post("/sign-up", async (req, res) => {
     }
 
     await User.create({ userid, email, nickname, password, phone });
-    res.status(201).send({});
+    res.status(201).send({ message: "회원가입 성공" });
 });
 
 module.exports = router;

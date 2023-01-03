@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
     <link href="../../static/css/main.css" rel="stylesheet" type="text/css" />
     <link href="../../static/css/user/user.css" rel="stylesheet" type="text/css" />
 
@@ -26,13 +27,13 @@
             <!-- 로그인 페이지 -->
             <div id="form_login">
                 <form method="post">
-                    <input type="text" name="username" id="username" placeholder="ID">
+                    <input type="text" name="username" id="inputUser" placeholder="ID">
 
-                    <input type="password" name="password" id="password" placeholder="PW">
+                    <input type="password" name="password" id="inputPassword" placeholder="PW">
 
                     <div id="btn_1">
-                        <button type="submit" onclick=login_click()>로그인</button>
-                        <div class='solid_line'></div>
+                        <button type="button" onclick=login_click()>로그인</button>
+
                         <button type="button" id="signup_btn">회원가입</button>
                     </div>
                 </form>
@@ -44,21 +45,40 @@
     </footer>
 
     <script>
+        if (localStorage.getItem("token")) {
+            getSelf(function () {
+                alert("이미 로그인이 되어있습니다.");
+                window.location.replace("/");
+            });
+        }
+
+
         function login_click() {
-            let userid = $('#username').val()
-            let password = $('#password').val()
+            let userid = $('#inputUser').val()
+            let password = $('#inputPassword').val()
+            console.log(userid);
+            const data = {
+                "userid": userid,
+                "password": password,
+            }
+            let sendData = JSON.stringify(data);
+            console.log(sendData);
+
             $.ajax({
                 type: "POST",
-                url: "/api/sign-in",
+                url: "/sign-in/sign-in",
+                // data: JSON.stringify(data),
                 data: {
                     userid: userid,
                     password: password,
                 },
                 success: function (response) {
                     localStorage.setItem("token", response.token);
+                    alert("로그인 성공")
                     window.location.replace("/");
                 },
                 error: function (error) {
+                    console.log(error)
                     alert("로그인 실패")
                 }
             })

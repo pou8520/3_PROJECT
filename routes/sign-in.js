@@ -4,7 +4,11 @@ const router = express.Router();
 const { User } = require("../models");
 
 router.post("/sign-in", async (req, res) => {
-    const { userid, password } = req.body;
+    console.log(req.body);
+    const {userid, password} = req.body;
+    // const data = JSON.parse(req.body);
+    // console.log(data.userid);
+    console.log("테스트입니다");
 
     const user = await User.findOne({ where: { userid, password } });
 
@@ -17,8 +21,8 @@ router.post("/sign-in", async (req, res) => {
 
     const token = jwt.sign({ id: user.id }, "customized-secret-key");
     res.send({
-      token,
+        token,
     });
-  });
+});
 
 module.exports = router;
