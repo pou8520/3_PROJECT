@@ -2,6 +2,7 @@ $(document).ready(function () {
     show_status();
 });
 
+// 모달 오픈
 function modal_open() { 
     $(".modal").fadeIn();
 
