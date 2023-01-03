@@ -33,18 +33,15 @@ const upload = multer({
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 
-
 app.use(express.static('./assets'));
-
+app.use('/images',express.static('images'));
 
 // 세탁물 등록
 app.post('/api/orders', upload.single('image'),async (req, res) => {
-    console.log(req.file)
-    console.log(req.body.name)
     const {nickname, address, content} = req.body;
     const image = req.file.path;
-    const Orders = await Order.create({nickname, address, content,image})
-    console.log(nickname,address,content,image)
+    const step = '대기중'
+    const Orders = await Order.create({nickname, address, content, image, step});
     res.status(201).json({Orders})
 })
 
@@ -53,6 +50,7 @@ app.get('/api/orders', async (req,res) => {
     const order = await Order.findAll({
         order: [['createdAt', 'DESC']]
     });
+    console.log(order)
     res.json({"orders":order})
 });
 // app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);

@@ -2,13 +2,24 @@ $(document).ready(function () {
     show_orders();
 });
 
-
-function modal_open() { 
-    $(".modal").fadeIn();
+// 세탁물 등록시 모달
+function modal_open1() { 
+    $(`.modal`).fadeIn();
 
     $(document).mouseup(function (e) {
-        if($(".modal").has(e.target).length === 0) {
-            $(".modal").hide();
+        if($(`.modal`).has(e.target).length === 0) {
+            $(`.modal`).hide();
+        };
+    });
+};
+
+// 세탁물 조회 모달
+function modal_open(i) { 
+    $(`.modal_${i}`).fadeIn();
+
+    $(document).mouseup(function (e) {
+        if($(`.modal`).has(e.target).length === 0) {
+            $(`.modal`).hide();
         };
     });
 };
@@ -26,29 +37,54 @@ function show_orders(){
                 let address = rows[i]['address'];
                 let content = rows[i]['content'];
                 let image = rows[i]['image'];
-                let createdAt = rows[i]['createdAt']
-                let day = createdAt.split('T')
-                let clock = day[1].split('.')
-                console.log(day[0])
-                console.log(clock[0])
-
+                let step = rows[i]['step'];
+                let createdAt = rows[i]['createdAt'];
+                let day = createdAt.split('T');
+                let clock = day[1].split('.');
+                console.log(image)
                 let temp_html = `
-                            <div onclick="modal_open()" class="order-content">
-                                <div class="content-left">
-                                    <div class="order-name">
-                                        ${nickname}
-                                    </div>
-                                    <div class="order-address">
-                                        ${address} 
-                                    </div>
-                                    <div class="order-date">
-                                        ${day[0]}<br>${clock[0]}
-                                    </div>
-                                </div>
-                                <div class="content-right">
-                                    대기중
-                                </div>
+                <div onclick="modal_open(${i})" class="order-content">
+                <div class="content-left">
+                    <div class="order-name">
+                        ${nickname}
+                    </div>
+                    <div class="order-address">
+                        ${address} 
+                    </div>
+                    <div class="order-date">
+                        ${day[0]}<br>${clock[0]}
+                    </div>
+                </div>
+                <div class="content-right">
+                    ${step}
+                </div>
+            </div>
+            <div class="modal_${i} modal">
+                <div class="modal_content">
+                    <div class="modal_title">
+                        라쿤표 세탁 신청서
+                    </div>
+                    <div class="modal_top">
+                        <div class="order_image">
+                            <image src="/${image}" width="300" height="370">
+                        </div>
+                        <div class="order_content">
+                            <div class="content_body">
+                                이름 : ${nickname}
                             </div>
+                            <div class="content_body">
+                                전화번호 : 456
+                            </div>
+                            <div class="content_body">
+                                주소 : ${address}
+                            </div>
+                            <div class="content_body">
+                                요청 내용 : ${content}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                                 `
                 $('#body_bottom').append(temp_html);                
             };
@@ -81,8 +117,8 @@ function create_orders() {
         processData: false,
         contentType: false,
         data: formData ,
-        // success: function (response) {
-        //     window.location.reload();
-        // },
+        success: function (response) {
+            window.location.reload();
+        },
     });
 };
