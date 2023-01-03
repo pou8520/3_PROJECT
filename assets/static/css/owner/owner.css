@@ -1,6 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 header {
@@ -36,9 +41,9 @@ footer {
 }
 
 .owner-body {
-    margin-top: 11vh;
+    padding-top: 11vh;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     background-color: #eeeeee;
 }
 

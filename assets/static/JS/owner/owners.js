@@ -100,7 +100,7 @@ function update_status(status) {
                 })
             }else {
                 window.location.reload();
-            }
+            };
         },
     });
 };

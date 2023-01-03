@@ -1,23 +1,38 @@
 const express = require('express');
+const {Review} = require('./models');
 const app = express();
 const router = require('./routes');
 require('dotenv').config();
 
-
+app.use(express.json());
+app.use(express.urlencoded({extended: false}))
 
 app.use(express.static('./assets'));
 
-app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
+// app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
+
+app.get('/api/reviews', async (req, res) => {
+    const reviews = await Review.findAll({
+        order: [['createdAt','DESC']]
+    });
+
+    res.status(200).json({"reviews":reviews})
+});
+
+app.post('/api/reviews', async (req, res) => {
+    const nickname = req.body.name_give;
+    const comment = req.body.comment_give;
+    const star = req.body.star_give;
+
+    await Review.create({star, nickname, comment});
+
+    res.status(201).send({"msg":"작성 성공!"});
+});
 
 
 
 
-// 상태 조회
-// app.get('/api/order_id/step', async (req,res) => {
-//     const status = await Step.findAll({});
 
-//     return res.status(200).json({"status": status});
-// });
 
 // 상태 등록
 // app.post('/api/step', async (req,res) => {
@@ -29,20 +44,7 @@ app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
 //     return res.status(200).send({"msg": "등록 성공 !"})
 // });
 
-// 상태 수정
-// app.patch('/api/:order_id/step', async (req,res) => {
-//     const status = req.body.value_give;
-//     console.log(status);
 
-//     await Step.update(
-//         {status: status},
-//         {where: {
-//             id: 1
-//         }},
-//     );
-
-//     return res.status(200).send({"msg": "수정 성공 !"});
-// });
 
 
 

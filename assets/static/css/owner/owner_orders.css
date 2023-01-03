@@ -186,7 +186,7 @@ footer {
     display:flex;
     flex-direction: column;
     cursor: default;
-    transform: translate(85%, 0);
+    transform: translate(85%, 40%);
 }
 
 .err_msg1 {
