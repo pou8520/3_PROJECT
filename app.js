@@ -29,7 +29,16 @@ app.post('/api/reviews', async (req, res) => {
     res.status(201).send({"msg":"작성 성공!"});
 });
 
+app.patch('/api/reviews/:review_id', async (req, res) => {
+    const {review_id} = req.params; 
+    const {nickname, comment, star} = req.body;
 
+    const update_review = await Review.update({nickname: nickname, comment: comment, star: star},
+        {where: {id: review_id}},
+        );
+    
+    res.status(200).send({"message": "리뷰 수정 성공 !"})
+    });
 
 
 
