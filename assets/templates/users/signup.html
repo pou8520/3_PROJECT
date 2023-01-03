@@ -27,7 +27,7 @@
             <!-- 회원가입 페이지 -->
             <div id="form_signup">
                 <h3>회원가입</h3>
-                <div>
+                <div id = "form_div">
                     <label for="name">UserID</label>
                     <input type="text" name="name" id="userid" placeholder="Name">
 
@@ -48,14 +48,15 @@
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email">
 
-
+                    <label for="point">Point</label>
+                    <input type="point" name="point" id="point"  disabled>
 
                     <div id="btn_1">
+                         <button type="button" id="btn_2">
+                            취소
+                        </button>
                         <button type="button" onclick="signup_click()">
                             회원가입
-                        </button> <br>
-                        <button type="button" id="login_btn">
-                            로그인
                         </button>
                     </div>
                 </div>

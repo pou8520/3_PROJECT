@@ -12,10 +12,10 @@ header {
     letter-spacing: 0.1rem;
     font-style: italic;
     background-color: rgba(221, 224, 224, 0.815);
-    position: fixed;
+    /* position: fixed;
     left: 0;
     right: 0;
-    top: 0;
+    top: 0; */
 }
 
 footer {
