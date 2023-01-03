@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const ownerRouter = require('./owner_routes');
+const orderRouter = require('./order_router');
 
-router.use('/orders', ownerRouter);
+router.use('/orders', orderRouter);
 
 module.exports = router;
