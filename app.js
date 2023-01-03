@@ -6,6 +6,7 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const {Order} = require('./models');
+const { userInfo } = require('os');
 require('dotenv').config();
 
 try {
@@ -50,7 +51,7 @@ app.get('/api/orders', async (req,res) => {
     const order = await Order.findAll({
         order: [['createdAt', 'DESC']]
     });
-    console.log(order)
+
     res.json({"orders":order})
 });
 // app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
