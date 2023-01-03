@@ -25,7 +25,9 @@ router.post("/", async (req, res) => {
       phone,
       content,
     });
-    res.json({ data: order });
+    res.json({ data: order, step : "대기중" });
+    //화면 리디렉션  -- 미들웨어로 사용?
+    //대기중
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -37,7 +39,7 @@ router.get("/:id", async (req, res) => {
 
   try {
     const order = await Order.findByPk(id);
-    res.json({ data: order });
+    res.json({ data: order});
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -56,7 +58,7 @@ router.patch("/:id", async (req, res) => {
   const order = await Order.findByPk(id);
 
   if (!order) {
-    return res.json({ message: "게시글 조회에 실패하였습니다." });
+    return res.json({ message: "신청 내역을 조회할 수 없습니다" });
   }
 
   if (nickname) {
@@ -74,7 +76,7 @@ router.patch("/:id", async (req, res) => {
 
   try {
     const updatedOrder = await order.save();
-    res.json({ data: updatedOrder });
+    res.json({data: updatedOrder, message: "신청정보 수정"});
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -88,16 +90,15 @@ router.delete("/:id", async (req, res) => {
   const order = await Order.findByPk(id);
 
   if (!order) {
-    return res.json({ message: "게시글 조회에 실패하였습니다." });
+    return res.json({ message: "신청 내역을 조회할 수 없습니다" });
   }
 
   try {
     await order.destroy();
-    res.json({ message: "게시글이 삭제됐습니다." });
+    res.json({ message: "신청 내역이 삭제됐습니다." });
   } catch (err) {
-    res.status(500).json({message: err.message});
+    res.status(500).json({ message: err.message });
   }
-
 });
 
 module.exports = router;
