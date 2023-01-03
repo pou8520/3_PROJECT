@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use(express.static('./assets'));
 
-// app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
+app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
 
 app.get('/api/reviews', async (req, res) => {
     const reviews = await Review.findAll({
