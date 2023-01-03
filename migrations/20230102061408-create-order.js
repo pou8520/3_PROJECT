@@ -15,10 +15,10 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      phone: {
+      content: {
         type: Sequelize.STRING
       },
-      content: {
+      image: {
         type: Sequelize.STRING
       },
       createdAt: {

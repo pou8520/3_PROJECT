@@ -18,7 +18,6 @@ function show_review() {
                 let output = '';
                 for (let j = 0; j < star; j++) {
                      output += "★"
-                    console.log(star)
                 }
 
                 let temp_html = `
