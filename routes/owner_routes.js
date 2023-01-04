@@ -7,3 +7,5 @@ const ownerController = new OwnerController();
 
 router.get('/', ownerController.getOrders);
 router.patch('/:order_id/step', ownerController.updateOrder);
+
+module.exports = router;
