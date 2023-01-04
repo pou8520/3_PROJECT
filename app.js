@@ -1,12 +1,10 @@
 const express = require('express');
-const {Review} = require('./models');
 const app = express();
 const router = require('./routes');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const {Order} = require('./models');
-const { userInfo } = require('os');
 require('dotenv').config();
 
 try {
@@ -41,6 +39,7 @@ app.use('/images',express.static('images'));
 app.post('/api/orders', upload.single('image'),async (req, res) => {
     const {nickname, address, content} = req.body;
     const image = req.file.path;
+    console.log(image);
     const step = '대기중'
     const Orders = await Order.create({nickname, address, content, image, step});
     res.status(201).json({Orders})
@@ -53,6 +52,39 @@ app.get('/api/orders', async (req,res) => {
     });
 
     res.json({"orders":order})
+});
+
+// 세탁물 수정
+app.patch('/api/orders/:order_id', upload.single('image'), async (req,res) => {
+    const {order_id} = req.params;
+    const {nickname, address, content} = req.body;
+    const image = req.file.path;
+    console.log('order_id : '+ order_id)
+    console.log('nickname,address,content : '+ nickname + ' ' + address + ' ' + content)
+    console.log('req.file : '+ image)
+
+    await Order.update(
+        {   
+            nickname: nickname,
+            address: address,
+            content: content,
+            image: image
+        },
+        {where: {id: order_id}}
+    )
+
+    res.status(200).json({"message": "세탁물 수정 성공 !"})
+})
+
+// 세탁물 삭제 api
+app.delete('/api/orders/:order_id', async (req, res) => {
+    const {order_id} = req.params;
+    console.log(order_id)
+    await Order.destroy({
+        where: {id: order_id},
+    });
+
+    res.status(200).json({"message": "게시글 삭제 성공 !"})
 });
 // app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
 

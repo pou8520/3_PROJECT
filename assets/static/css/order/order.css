@@ -8,6 +8,18 @@ body {
     display: none;
 }
 
+/* 수정 input */
+input {
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    }
+    
 header {
     display: flex;
     justify-content: space-between;
@@ -254,18 +266,6 @@ footer {
 .button_content:active {
     font-size: 19px;
 }
-
-input {
-    width: 500px;
-    height: 32px;
-    font-size: 15px;
-    border: 0;
-    border-radius: 15px;
-    outline: none;
-    padding-left: 10px;
-    background-color: rgb(233, 233, 233);
-  }
-
 
   /* 이미지 등록 버튼 */
 .button {
