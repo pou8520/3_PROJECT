@@ -1,24 +1,15 @@
-const { Step } = require('../models');
+const { Order } = require('../models');
 
 class OwnerRepository {
-    findAllStatus = async () => {
-        const status = await Step.findAll();
 
-        return status;
-    };
-
-    updateStatus = async (status) => {
-
-        const update_status = await Step.update(
-            {status: status},
-            {where: {
-                id: 1
-            }},
+    updateStatus = async (order_id, value_give) => {
+        await Order.update({
+            step: value_give,
+        },
+        {where: {id: order_id}},
         );
         
-        return update_status;
+        return;
     };
-
-};
-
+}
 module.exports = OwnerRepository;

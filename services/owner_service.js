@@ -1,30 +1,14 @@
 const OwnerRepository = require('../repositories/owner_repository');
 
 class OwnerService {
-    ownerRepository = new OwnerRepository;
+    ownerRepository = new OwnerRepository();
 
-    findAllStatus = async () => {
-        const allStatus = await this.ownerRepository.findAllStatus();
+    updateStatus = async (order_id, value_give) => {
+        await this.ownerRepository.updateStatus(order_id, value_give);
 
-        allStatus.sort((a, b) => {
-            return b.createdAt - a.createdAt;
-        });
-
-        return allStatus.map(status => {
-            return {
-                id: status.id,
-                status: status.status,
-                createdAt: status.createdAt,
-                updatedAt: status.updatedAt
-            };
-        });
+        return
     };
 
-    updateStatus = async (status) => {
-
-    await this.ownerRepository.updateStatus(status);
-
-    };
 };
 
 module.exports = OwnerService;
