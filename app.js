@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const router = require('./routes');
-const signupRouter = require('./routes/sign-up');
-const signinRouter = require('./routes/sign-in');
+const signupRouter = require('./routes/custom_sign-up');
+const signinRouter = require('./routes/custom_sign-in');
+const owner_signupRouter = require('./routes/owner_sign-up');
+const owner_signinRouter = require('./routes/owner_sign-in');
 const bodyParser = require('body-parser')
 
 require('dotenv').config();
@@ -15,6 +17,8 @@ app.use(express.json());
 app.use(express.json(), express.urlencoded({ extended: false }), [router]);
 app.use(signupRouter);
 app.use(signinRouter);
+app.use(owner_signupRouter);
+app.use(owner_signinRouter);
 
 
 

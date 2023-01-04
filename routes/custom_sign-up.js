@@ -7,7 +7,7 @@ const { User } = require("../models");
 
 router.post("/sign-up", async (req, res) => {
     const { userid, email, nickname, phone, password, confirmPassword } = req.body;
-    const point = 10000;
+    const point = 1000000;
 
     // const point = await User.findOne({
     //     where:{
@@ -57,17 +57,17 @@ router.post("/sign-up", async (req, res) => {
         });
         return;
     }
-    const existsUsers4 = await User.findAll({
-        where: {
-            [Op.or]: [{ phone }],
-        },
-    });
-    if (existsUsers4.length) {
-        res.status(400).send({
-            errorMessage: "번호를 확인해주세요.",
-        });
-        return;
-    }
+    // const existsUsers4 = await User.findAll({
+    //     where: {
+    //         [Op.or]: [{ phone }],
+    //     },
+    // });
+    // if (existsUsers4.length) {
+    //     res.status(400).send({
+    //         errorMessage: "번호를 확인해주세요.",
+    //     });
+    //     return;
+    // }
     const existsUsers5 = await User.findAll({
         where: {
             [Op.or]: [{ userid }],
