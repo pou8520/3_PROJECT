@@ -6,7 +6,14 @@ const { User } = require("../models");
 
 
 router.post("/sign-up", async (req, res) => {
-    const { userid, email, nickname, phone, password, confirmPassword, } = req.body;
+    const { userid, email, nickname, phone, password, confirmPassword } = req.body;
+    const point = 10000;
+
+    // const point = await User.findOne({
+    //     where:{
+    //         [Op.or]: [{ point }]
+    //     },
+    // })
 
     if (password !== confirmPassword) {
         res.status(400).send({
@@ -73,7 +80,13 @@ router.post("/sign-up", async (req, res) => {
         return;
     }
 
-    await User.create({ userid, email, nickname, password, phone });
+    // const point = await User.findAll({
+    //     where: {
+    //         [Op.or]: [{ point }]
+    //     },
+    // });
+
+    await User.create({ userid, email, nickname, password, phone, point });
     res.status(201).send({ message: "회원가입 성공" });
 });
 
