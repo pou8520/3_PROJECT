@@ -41,10 +41,10 @@ function show_orders(){
                 let step = rows[i]['step'];
                 let createdAt = rows[i]['createdAt'];
                 let order_id = rows[i]['id'];
-
-
                 let time = createdAt.split(' ');
 
+
+                
                 let temp_html = `
                         <div onclick="modal_open(${i})" class="order-content">
                             <div class="content-left">
