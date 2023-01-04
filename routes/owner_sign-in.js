@@ -5,7 +5,7 @@ const { OwnerUsers } = require("../models");
 
 router.post("/owner-sign-in", async (req, res) => {
     console.log(req.body);
-    const {userid, password} = req.body;
+    const { userid, password } = req.body;
     // const data = JSON.parse(req.body);
     // console.log(data.userid);
     console.log("테스트입니다");

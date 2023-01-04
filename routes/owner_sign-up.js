@@ -8,6 +8,7 @@ const { OwnerUsers } = require("../models");
 router.post("/owner-sign-up", async (req, res) => {
     const { userid, email, nickname, phone, password, confirmPassword } = req.body;
     const point = 0;
+    console.log(req.body)
 
     // const point = await User.findOne({
     //     where:{
