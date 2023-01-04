@@ -1,17 +1,6 @@
-express html rendering
-nodejs html 제공
-express html 렌더링 예제
+// 로그아웃 함수
 
-app.get('/index.html', function (req, res) {
-    res.sendFile(__dirname + "/assets/templates/index.html")
-})
-
-
-app.get('/login.html', function (req, res) {
-    res.sendFile(__dirname + "/assets/templates/users/login.html")
-})
-
-
-app.get('/signup.html', function (req, res) {
-    res.sendFile(__dirname + "/assets/templates/users/signup.html")
-})
+function signOut() {
+  localStorage.clear();
+  window.location.href = '/';
+}
