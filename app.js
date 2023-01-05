@@ -2,24 +2,19 @@ const express = require("express");
 const { Review } = require("./models");
 const app = express();
 const router = require("./routes");
-const multer = require("multer");
-const fs = require("fs");
-const path = require("path");
-const { Order } = require("./models");
-const { userInfo } = require("os");
 const methodOverride = require("method-override");
+
 require("dotenv").config();
 
 //화면 engine 템플릿 사용을 ejs로 설정
 app.set("view engine", "ejs");
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-app.use(express.static("./assets"));
-app.use("/images", express.static("images"));
+app.use(express.static('./assets'));
+app.use('/images',express.static('images'));
+app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
+app.use(express.json(),express.urlencoded({extended: false}))
 app.use(methodOverride("_method")); // put과 delete는 HTML이 지원x. npm i method-override --save 설치
 
 
@@ -74,35 +69,6 @@ app.delete("/reviews/:id", async (req, res) => {
   });
 });
 
-
-
-
-
-
 app.listen(process.env.PORT, () => {
   console.log(`${process.env.PORT} 포트가 열렸어요 `);
 });
-const express = require('express');
-const app = express();
-const router = require('./routes');
-require('dotenv').config();
-const {User} = require('./models');
-const customMiddleware = require('./middlewares/custom-auth-middleware.js');
-
-app.use(express.static('./assets'));
-app.use('/images',express.static('images'));
-app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
-app.use(express.json(),express.urlencoded({extended: false}))
-
-// app.post('/api/orders/coin', customMiddleware, async (req, res) => {
-//     const user_Id = res.locals.user
-//     console.log('로그인 유저 : '+user_Id)
-
-//     const user_coin = await User.findOne({
-//         where: {
-//             id: user_Id
-//         }
-//     })
-//     console.log('유저 코인'+ user_coin)
-//     res.status(200).send({"coin": user_coin})
-// })
