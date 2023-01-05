@@ -51,7 +51,7 @@
                     <!-- <label for="point">Point</label>
                     <p>회원가입 성공시 <span id="point">1,000,000</span> P 지급</p> -->
                     <div id="btn_1">
-                        <button type="button" id="btn_2" onclick="location.href='./custom_login.html'">
+                        <button type="button" id="btn_2" onclick="location.href='../../index.html'">
                             취소
                         </button>
                         <button type="button" onclick="signup_click()">
@@ -88,9 +88,8 @@
                     // point:point,
                 },
                 success: function (response) {
-                    alert("회원가입을 축하합니다", function () {
-                        window.location.href = '../index.html';
-                    });
+                    alert("회원가입을 축하합니다");
+                    window.location.href = '../../index.html';
                 },
                 erroer: function (error) {
                     alert("에러입니다")
