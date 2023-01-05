@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "root",
+    "password": "4321aaaa",
+    "database": "db_project3",
+    "host": "express-database.cku0pi3ehrzj.ap-northeast-2.rds.amazonaws.com",
+    "dialect": "mysql",
+    "timezone": "Asia/Seoul",
+    "dialectOptions": {
+      "charset": "utf8mb4",
+      "dateStrings": true,
+      "typeCast": true
+    } 
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
