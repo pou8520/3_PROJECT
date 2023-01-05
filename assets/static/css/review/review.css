@@ -1,0 +1,382 @@
+body {
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 40px;
+    letter-spacing: 0.1rem;
+    font-style: italic;
+    background-color: rgba(221, 224, 224, 0.815);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 12vh;
+    bottom: 0px;
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.owner-body {
+    background-color: #eeeeee;
+    padding-top: 13vh;
+    width: 100%;
+    height: 20vh;
+}
+
+.body-top {
+    width: 100%;
+    height: 10%;
+}
+
+.point {
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+}
+
+.text {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.body-bottom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.review-container {
+    background-color: aliceblue;
+    width: 40%;
+    height: 90%;
+    margin-top: 1%;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+}
+
+.container-top {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content:space-between
+}
+
+.top-star {
+    margin-top: 3%;
+}
+
+/* 별점 기능 */
+#myform fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    border: 0; /* 필드셋 테두리 제거 */
+}
+#myform input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+#myform label{
+    font-size: 1.5em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #a7a6a6; /* 새 이모지 색상 부여 */
+}
+
+#myform label:hover{
+    text-shadow: 0 0 0 rgb(96, 161, 199); /* 마우스 호버 */
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgb(96, 161, 199); /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+#myform fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+
+#myform fieldset legend{
+    text-align: left;
+}
+
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgb(96, 161, 199); /* 마우스 클릭 체크 */
+}
+/*          */
+
+.top-button {
+    background-color: #7c7c7c;
+    width: 30%;
+    height: 70%;
+    margin-top: 2%;
+    margin-right: 3%;
+    text-align: center;
+    padding-top: 4px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
+
+.top-button:hover {
+    background-color: #999898;
+}
+
+.container-middle {
+    width: 100%;
+    height: 29%;
+    margin-top: 5%;
+}
+
+.input-tag {
+    width: 40%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    font-weight: bold;
+
+}
+
+.tag {
+    height: 90%;
+    border-radius: 10px;
+    border: #7c7c7c solid ;
+}
+
+.comment-input {
+    width: 100%;
+    height: 70%;
+}
+
+.comment {
+    margin-top: 5%;
+    width: 100%;
+    height: 50%;
+    border-radius: 10px;
+    border: #7c7c7c solid ;
+}
+
+.container-bottom {
+    width: 100%;
+    height: 50%;
+    margin-top: 5%;
+    overflow-y: scroll;
+}
+
+.comment-content {
+    background-color: #a7a6a6;
+    width: 95%;
+    height: 25%;
+    margin-top: 2%;
+    margin-left: 2.5%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.content-head {
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.head-star {
+    height: 40%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 3px solid #313131;
+    color: rgb(46, 143, 199);
+
+}
+
+.head-name {
+    height: 60%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.content-body {
+    padding-top: 25px;
+    width: 60%;
+    height: 100%;
+    border-left: 3px solid #313131;
+    padding-left: 3%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.content-button {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-a {
+    background-color: #bbb9b9;
+    width: 40%;
+    height: 40%;
+    margin: auto;
+    text-align: center;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.button-a:hover {
+    background-color: #d1d0d0;
+}
+
+/* 모달 */
+.modal{ 
+    position:absolute; 
+    width:100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.8); 
+    top:0; 
+    left:0; 
+    display:none;
+  }
+
+.modal_content{
+    width:1000px; height:700px;
+    background:#eeeeee; border-radius:10px;
+    position:relative; top:20%; left:30%;
+    margin-top:-100px; margin-left:-200px;
+    text-align:center;
+    box-sizing:border-box; padding:74px 0;
+    line-height:23px; cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+.modal_title {
+    height: 50px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #616161;
+} 
+
+.modal_top {
+    background-color: #dddddd;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+.order_image {
+    background-color: wheat;
+    width: 30%;
+}
+
+.order_content {
+    width: 70%;
+}
+
+.content_body {
+    height: 15%;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.modal_button {
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_body {
+    width: 15%;
+    height: 100px;
+    margin: auto;
+    line-height: 100px;
+}
+
+.button_content {
+    background-color: #dddddd;
+    width: 130px;
+    height: 100px;
+    border-radius: 20px;
+    border-style: double;
+    border-color: #a5a4a4;
+    font-weight: bold;
+    font-size: 1.3rem;
+    box-shadow: 2px 4px 6px 0px rgb(100, 88, 88);
+}
+
+.button_content:hover {
+    background-color: #ecebeb;
+}
+
+.button_content:active {
+    font-size: 19px;
+}
+
+
+/* 별점 */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    justify-content: space-around;
+    padding: 0 0.2em;
+    text-align: center;
+    width: 5em;
+  }
+   
+  .star-rating input {
+    display: none;
+  }
+   
+  .star-rating label {
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2.3px;
+    -webkit-text-stroke-color: #2b2a29;
+    cursor: pointer;
+  }
+   
+  .star-rating :checked ~ label {
+    -webkit-text-fill-color: gold;
+  }
+   
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    -webkit-text-fill-color: #fff58c;
+  }
