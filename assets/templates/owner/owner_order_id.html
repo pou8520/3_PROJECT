@@ -6,14 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link href="../../static/css/owner/owner_order_id.css" rel="stylesheet" type="text/css" />
-    <script defer type="text/javascript" src="../../static/JS/owners.js"></script>
+    <link href="../../static/css/owner/owner_orders.css" rel="stylesheet" type="text/css" />
+    <script defer type="text/javascript" src="../../static/JS/owner/owners.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.6.3.js"
-  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-  crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <title>Document</title>
@@ -50,22 +47,17 @@
     </div>
     <div class="modal_button">
         <div class="button_body">
-            <button class="button_content">
-                수거 하기
-            </button>
-        </div>
-        <div class="button_body">
-            <button class="button_content">
+            <button value="수거 완료" onclick="update_status(this);"  class="button_content">
                 수거 완료
             </button>
         </div>
         <div class="button_body">
-            <button class="button_content">
+            <button value="배송중" onclick="update_status(this);"  class="button_content">
                 배송중
             </button>
         </div>
         <div class="button_body">
-            <button class="button_content">
+            <button value="배송 완료" onclick="update_status(this);"  class="button_content">
                 배송 완료
             </button>
         </div>
@@ -78,23 +70,8 @@
                 <span class="text">잔여 포인트: 0 P</span>
             </div>
         </div>
-        <div class="body-bottom">
-            <div onclick="modal_open()" class="order-content">
-                <div class="content-left">
-                    <div class="order-name">
-                        변정민
-                    </div>
-                    <div class="order-address">
-                        대한민국 어디시 어디도 어디군 어디로 어디읍 어디어디어디 
-                    </div>
-                    <div class="order-date">
-                        2022-12-30
-                    </div>
-                </div>
-                <div class="content-right">
-                    대기중
-                </div>
-            </div>
+        <div id="body_bottom" class="body-bottom">
+        
         </div>
     </div>
     <footer>

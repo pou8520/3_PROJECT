@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link href="../static/css/review/review.css" rel="stylesheet" type="text/css" />
+    <script defer type="text/javascript" src="../static/JS/review/review.js"></script>
+
+
+    <title>Document</title>
+</head>
+
+
+
+
+
+<body>
+    <header>
+        일석삼조
+        <nav>
+            <button class="btn_out" onclick="logout_click()">
+                로그아웃
+            </button>
+        </nav>
+    </header>
+    <div class="owner-body">
+        <div class="body-top">
+            <div class="point">
+                <span class="text">잔여 포인트: 0 P</span>
+            </div>
+        </div>
+    </div>
+    <div id="comment_bottom" class="container-bottom">
+ 
+    <div class="review-body">
+        <div class="body-bottom">
+            <div class="review-container">
+                <div class="container-top">
+                    <section>
+                        <div onclick="location.href='/reviews/new'" class="btn btn-secondary">
+                            <h4>이용후기 작성</h4>
+                    </section>
+                </div>
+                <section>
+                    <% reviews.forEach(review=> { %>
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <h3 class="card-subtitle mb-2">
+                                    <%= review.star %>
+                                </h3>
+                                <div align="right" class="card-title">
+                                    <label for="nickname">작성자:</label>
+                                    <%= review.nickname %>
+                                </div>
+                                <h4 align="center" class="card-subtitle mb-2" >
+                                    <label for="title"></label>
+                                    <%= review.title %>
+                                </h4>
+                                <h6 align="center" class="card-text mb-2">
+                                    <label for="title"></label>
+                                    <%= review.comment %>
+                                </h6>
+
+                                <div align="right" class="card-subtitle text-muted mb-2">
+                                    <%= review.createdAt.toLocaleString('ko-KR') %>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="s1">
+                            <a href="/reviews/edit/<%= review.id %>" class="btn btn-primary">수정</a>
+                        </span>
+                        <span class='s2'>
+                            <form action="/reviews/<%= review.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">삭제</button>
+                            </form>
+                        </span>
+                        <% }) %>
+                </section>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    </div>
+
+    <footer>
+        Copyright ©2022 . All rights reserved.
+    </footer>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+
+
+</body>
+
+</html>

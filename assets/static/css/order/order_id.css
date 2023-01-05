@@ -117,7 +117,7 @@ footer {
 .order-date {
     width: 25%;
     padding-top: 20px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
 }
@@ -128,39 +128,6 @@ footer {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-}
-
-/* 모달 에러창 */
-.err_modal {
-    position:absolute; 
-    width:100%; 
-    height:100%; 
-    background: rgba(0,0,0,0.8); 
-    top:0; 
-    left:0; 
-    display:none;
-}
-
-.err_body {
-    width:300px; height:100px;
-    background:#969494; border-radius:10px;
-    position:relative; top:20%; left:30%;
-    margin-top:-100px; margin-left:-200px;
-    text-align:center;
-    box-sizing:border-box; padding:74px 0;
-    line-height:23px; cursor:pointer;
-    display:flex;
-    flex-direction: column;
-    cursor: default;
-    transform: translate(85%, 0);
-}
-
-.err_msg {
-    margin-top: -5%;
-    width: 100%;
-    height: 30%;
-    font-weight: bold;
-    font-size: 1.5rem;
 }
 
 /* 모달 성공 */
@@ -186,7 +153,7 @@ footer {
     display:flex;
     flex-direction: column;
     cursor: default;
-    transform: translate(85%, 40%);
+    transform: translate(85%, 0);
 }
 
 .err_msg1 {
@@ -198,7 +165,7 @@ footer {
 }
 
 /* 모달 */
-.modal { 
+.modal{ 
     position:absolute; 
     width:100%; 
     height:100%; 
@@ -208,7 +175,7 @@ footer {
     display:none;
   }
 
-.modal_content {
+.modal_content{
     width:1000px; height:700px;
     background:#eeeeee; border-radius:10px;
     position:relative; top:20%; left:30%;
@@ -219,7 +186,6 @@ footer {
     display:flex;
     flex-direction: column;
     cursor: default;
-    transform: translate(21%,5%);
 }
 
 .modal_title {
@@ -257,12 +223,12 @@ footer {
 .modal_button {
     width: 100%;
     height: 30%;
+
     display: flex;
     justify-content: space-between;
 }
 
 .button_body {
-    padding-top: 3%;
     width: 15%;
     height: 100px;
     margin: auto;
