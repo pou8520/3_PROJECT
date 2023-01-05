@@ -19,10 +19,11 @@ router.post("/sign-in", async (req, res) => {
         return;
     }
 
-    const token = jwt.sign({ id: user.id }, "customized-secret-key");
     res.send({
-        token,
+        token: jwt.sign({id: user.id}, "customized-secret-key")
     });
+    // const token = jwt.sign({ id: user.id }, "customized-secret-key");
+    // res.json({token: token});
 });
 
 module.exports = router;

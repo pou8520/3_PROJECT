@@ -3,6 +3,7 @@ const { OwnerUsers } = require("../models");
 
 module.exports = (req, res, next) => {
     const { authorization } = req.headers;
+    console.log(authorization)
     const [authType, authToken] = (authorization || "").split(" ");
 
     // 로그인이 필요합니다 

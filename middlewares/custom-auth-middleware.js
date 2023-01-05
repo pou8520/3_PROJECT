@@ -4,7 +4,7 @@ const { User } = require("../models");
 module.exports = (req, res, next) => {
     const { authorization } = req.headers;
     const [authType, authToken] = (authorization || "").split(" ");
-
+    console.log(authType, authToken)
     // 로그인이 필요합니다 
     if (!authToken || authType !== "Bearer") {
         res.status(401).send({
@@ -25,21 +25,21 @@ module.exports = (req, res, next) => {
         });
     }
     // 이미 로그인이 되어있습니다.
-    if (authToken && authType === "Bearer") {
-        res.status(401).send({
-            errorMessage: "이미 로그인이 되어있습니다."
-        })
-        return;
-    }
-    try {
-        const { id } = jwt.verify(authToken, "customized-secret-key");
-        User.findByPk(id).then((user) => {
-            res.locals.user = user;
-            next();
-        });
-    } catch (err) {
-        res.status(401).send({
-            errorMessage: "이미 로그인이 되어있습니다.",
-        });
-    }
+    // if (authToken && authType === "Bearer") {
+    //     res.status(401).send({
+    //         errorMessage: "이미 로그인이 되어있습니다."
+    //     })
+    //     return;
+    // }
+    // try {
+    //     const { id } = jwt.verify(authToken, "customized-secret-key");
+    //     User.findByPk(id).then((user) => {
+    //         res.locals.user = user;
+    //         next();
+    //     });
+    // } catch (err) {
+    //     res.status(401).send({
+    //         errorMessage: "이미 로그인이 되어있습니다.",
+    //     });
+    // }
 };

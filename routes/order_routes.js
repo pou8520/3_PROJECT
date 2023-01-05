@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const customMiddleware = require('../middlewares/custom-auth-middleware.js');
 
 try {
     fs.readdirSync('images');
@@ -30,7 +31,7 @@ const OrderController = require('../controllers/order_controller');
 const orderController = new OrderController();
 
 router.get('/', orderController.getOrders);
-router.post('/', upload.single('image'), orderController.createOrders);
+router.post('/', customMiddleware, upload.single('image'), orderController.createOrders);
 router.patch('/:order_id', upload.single('image'), orderController.updateOrders);
 router.delete('/:order_id', orderController.deleteOrders);
 

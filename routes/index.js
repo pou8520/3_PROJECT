@@ -8,6 +8,9 @@ const signinRouter = require('./custom_sign-in');
 const owner_signupRouter = require('./owner_sign-up');
 const owner_signinRouter = require('./owner_sign-in');
 const bodyParser = require('body-parser')
+const customMiddleware = require('../middlewares/custom-auth-middleware.js');
+const ownerMiddleware = require('../middlewares/owner-auth-middleware.js');
+
 router.use(bodyParser.json())
 
 router.use('/owners', ownerRouter);

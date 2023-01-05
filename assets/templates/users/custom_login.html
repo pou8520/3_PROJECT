@@ -76,8 +76,8 @@
                     password: password,
                 },
                 success: function (response) {
-                    localStorage.setItem("token", response.token);
                     alert("로그인 성공")
+                    localStorage.setItem("token", response.token);
                     window.location.replace("../order/orders.html");
                 },
                 error: function (error) {

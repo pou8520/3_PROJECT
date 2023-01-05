@@ -114,7 +114,8 @@ function create_orders() {
     const request_comment = $("#request_comment").val();
     const image = $('input[name="chooseFile"]').get(0).files[0];
     const formData = new FormData();
-
+    let token = localStorage.getItem('token') || '';
+    console.log(token)
     formData.append('nickname', name);
     formData.append('address', address);
     formData.append('content', request_comment);
@@ -125,6 +126,9 @@ function create_orders() {
     }
 
     $.ajax({
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        },
         type: "POST",
         url: "/api/orders",
         enctype: "multipart/form-data",
