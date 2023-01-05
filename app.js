@@ -4,7 +4,6 @@ const router = require('./routes');
 require('dotenv').config();
 
 
-
 app.use(express.static('./assets'));
 app.use('/images',express.static('images'));
 app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);

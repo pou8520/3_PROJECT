@@ -77,7 +77,7 @@
                 success: function (response) {
                     localStorage.setItem("token", response.token);
                     alert("로그인 성공")
-                    window.location.replace("/o");
+                    window.location.replace("../owner/owner.html");
                 },
                 error: function (error) {
                     console.log(error)

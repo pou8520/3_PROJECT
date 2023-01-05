@@ -89,8 +89,8 @@
                 },
                 success: function (response) {
                     alert("회원가입을 축하합니다", function () {
-                        window.location.href("../index.html")
-                    })
+                        window.location.href = '../index.html';
+                    });
                 },
                 erroer: function (error) {
                     alert("에러입니다")
