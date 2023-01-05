@@ -46,6 +46,7 @@ function show_orders(){
 
                 
                 let temp_html = `
+
                         <div onclick="modal_open(${i})" class="order-content">
                             <div class="content-left">
                                 <div class="order-name">
@@ -115,15 +116,11 @@ function create_orders() {
     const image = $('input[name="chooseFile"]').get(0).files[0];
     const formData = new FormData();
     let token = localStorage.getItem('token') || '';
-    console.log(token)
+
     formData.append('nickname', name);
     formData.append('address', address);
     formData.append('content', request_comment);
     formData.append('image', image);
-
-    for (let value of formData.values()) {
-        console.log(value);
-    }
 
     $.ajax({
         headers: {
@@ -137,7 +134,7 @@ function create_orders() {
         data: formData ,
         success: function (response) {
             window.location.reload();
-        },
+        }    
     });
 };
 
@@ -167,6 +164,7 @@ function update_orders(order_id) {
     });
 
 }
+
 
 // 세탁물 수정 model
 function update_orders_model(modal_id, order_id, address, content, nickname) {

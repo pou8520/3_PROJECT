@@ -1,7 +1,5 @@
 const OrderService = require('../services/order_service');
 
-
-
 class OrderController {
     orderservice = new OrderService();
 
