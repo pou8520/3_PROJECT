@@ -9,9 +9,9 @@ const bodyParser = require('body-parser')
 
 require('dotenv').config();
 app.use(express.static('./assets'));
-
-app.use('/images',express.static('images'));
 app.use('/api',express.json(),express.urlencoded({extended: false}), [router]);
+app.use(express.json(),express.urlencoded({extended: false}));
+app.use('/images',express.static('images'));
 app.use(bodyParser.json())
 app.use(signupRouter);
 app.use(signinRouter);
