@@ -1,7 +1,6 @@
 {
   "name": "3_project",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
@@ -17,7 +16,8 @@
   },
   "homepage": "https://github.com/pou8520/3_PROJECT#readme",
   "dependencies": {
-    "cookie-parse": "^0.4.0",
+    "bootstrap": "^5.2.2",
+    "consolidate": "^0.16.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
@@ -25,6 +25,9 @@
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.0",
     "multer": "^1.4.5-lts.1",
+    "jest": "^29.3.1",
+    "mongoose": "^6.8.2",
+    "mustache": "^4.2.0",
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
     "sequelize": "^6.28.0"
@@ -32,5 +35,7 @@
   "devDependencies": {
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

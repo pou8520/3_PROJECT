@@ -1,0 +1,6 @@
+// 로그아웃 함수
+
+function signOut() {
+  localStorage.clear();
+  window.location.href = '/';
+}
