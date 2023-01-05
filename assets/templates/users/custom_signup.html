@@ -74,10 +74,10 @@
             const phone = $("#phone").val();
             const email = $("#email").val();
             // const point = $("#point").val();
-
+            console.log(userid, password, re_password, nickname, phone, email)
             $.ajax({
                 type: "POST",
-                url: "/sign-up",
+                url: "/api/sign-up",
                 data: {
                     userid: userid,
                     password: password,
@@ -89,7 +89,7 @@
                 },
                 success: function (response) {
                     alert("회원가입을 축하합니다", function () {
-                        window.location.replace("/")
+                        window.location.href("../index.html")
                     })
                 },
                 erroer: function (error) {
