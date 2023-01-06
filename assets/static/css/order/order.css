@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 수정 input */
+input {
+    width: 500px;
+    height: 32px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(233, 233, 233);
+    }
+    
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 40px;
+    letter-spacing: 0.1rem;
+    font-style: italic;
+    background-color: rgba(221, 224, 224, 0.815);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 12vh;
+    bottom: 0px;
+    /* position: absolute; */
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.owner-body {
+    padding-top: 11vh;
+    width: 100%;
+    height: 90vh;
+    background-color: #eeeeee;
+}
+
+.body-top {
+    width: 100%;
+    height: 10%;
+}
+
+.point {
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+}
+
+.text {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.body-bottom {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-button {
+    background-color: #a5a4a4;
+    width: 300px;
+    height: 200px;
+    margin: 9%;
+    text-align: center;
+    line-height: 200px;
+    border: 2px solid;
+    border-radius: 30px;
+    border-color:#746f6f;
+    box-shadow: 5px 5px 5px 0px rgb(139, 138, 138);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.order-button:hover {
+    transform: scale(1.055);
+    cursor: pointer;
+}
+
+/* 모달 에러창 */
+.err_modal {
+    position:absolute; 
+    width:100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.8); 
+    top:0; 
+    left:0; 
+    display:none;
+}
+
+.err_body {
+    width:300px; height:100px;
+    background:#969494; border-radius:10px;
+    position:relative; top:20%; left:30%;
+    margin-top:-100px; margin-left:-200px;
+    text-align:center;
+    box-sizing:border-box; padding:74px 0;
+    line-height:23px; cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    cursor: default;
+    transform: translate(85%, 0);
+}
+
+.err_msg {
+    margin-top: -5%;
+    width: 100%;
+    height: 30%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* 모달 성공 */
+
+.err_modal1 {
+    position:absolute; 
+    width:100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.8); 
+    top:0; 
+    left:0; 
+    display:none;
+}
+
+.err_body1 {
+    width:300px; height:100px;
+    background:#969494; border-radius:10px;
+    position:relative; top:20%; left:30%;
+    margin-top:-100px; margin-left:-200px;
+    text-align:center;
+    box-sizing:border-box; padding:74px 0;
+    line-height:23px; cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    cursor: default;
+    transform: translate(85%, 40%);
+}
+
+.err_msg1 {
+    margin-top: -15%;
+    width: 100%;
+    height: 30%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* 모달 */
+.modal { 
+    position:absolute; 
+    width:100%; 
+    height:100%; 
+    background: rgba(0,0,0,0.8); 
+    top:0; 
+    left:0; 
+    display:none;
+  }
+
+.modal_content {
+    width:1000px; height:700px;
+    background:#eeeeee; border-radius:10px;
+    position:relative; top:15%; left:30%;
+    margin-top:-100px; margin-left:-200px;
+    text-align:center;
+    box-sizing:border-box; padding:74px 0;
+    line-height:23px; cursor:pointer;
+    display:flex;
+    flex-direction: column;
+    cursor: default;
+    transform: translate(10%,2%);
+}
+
+.modal_title {
+    height: 50px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #616161;
+} 
+
+.modal_top {
+    background-color: #dddddd;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+}
+
+.order_image {
+    background-color: wheat;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    margin-top: 50%;
+}
+
+.order_content {
+    width: 70%;
+}
+
+.content_body {
+    height: 15%;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.modal_button {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_body {
+    padding-top: 3%;
+    width: 15%;
+    height: 100px;
+    margin: auto;
+    line-height: 100px;
+}
+
+.button_content {
+    background-color: #dddddd;
+    width: 130px;
+    height: 100px;
+    border-radius: 20px;
+    border-style: double;
+    border-color: #a5a4a4;
+    font-weight: bold;
+    font-size: 1.3rem;
+    box-shadow: 2px 4px 6px 0px rgb(100, 88, 88);
+}
+
+.button_content:hover {
+    background-color: #ecebeb;
+}
+
+.button_content:active {
+    font-size: 19px;
+}
+
+  /* 이미지 등록 버튼 */
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 2px dashed; 
+
+
+}
+
+/* 못생긴 기존 input 숨기기 */
+#chooseFile {
+    visibility: hidden;
+}

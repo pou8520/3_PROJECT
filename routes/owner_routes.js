@@ -5,7 +5,6 @@ const OwnerController = require('../controllers/owner_controller');
 const ownerController = new OwnerController();
 
 
-router.get('/', ownerController.getOrders);
-router.patch('/:order_id/step', ownerController.updateOrder);
+router.patch('/step/:order_id', ownerController.updateStatus);
 
 module.exports = router;

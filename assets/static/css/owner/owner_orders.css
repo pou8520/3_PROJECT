@@ -8,6 +8,39 @@ body {
     display: none;
   }
 
+/* 수정 input */
+input {
+width: 500px;
+height: 32px;
+font-size: 15px;
+border: 0;
+border-radius: 15px;
+outline: none;
+padding-left: 10px;
+background-color: rgb(233, 233, 233);
+}
+
+/* 수정 img */
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 40%;
+}
+
+label {
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: 2px dashed; 
+
+
+}
+
+/* 못생긴 기존 input 숨기기 */
+#chooseFile {
+    visibility: hidden;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -68,6 +101,7 @@ footer {
     height: 90%;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 .order-content {
@@ -130,39 +164,6 @@ footer {
     font-weight: bold;
 }
 
-/* 모달 에러창 */
-.err_modal {
-    position:absolute; 
-    width:100%; 
-    height:100%; 
-    background: rgba(0,0,0,0.8); 
-    top:0; 
-    left:0; 
-    display:none;
-}
-
-.err_body {
-    width:300px; height:100px;
-    background:#969494; border-radius:10px;
-    position:relative; top:20%; left:30%;
-    margin-top:-100px; margin-left:-200px;
-    text-align:center;
-    box-sizing:border-box; padding:74px 0;
-    line-height:23px; cursor:pointer;
-    display:flex;
-    flex-direction: column;
-    cursor: default;
-    transform: translate(85%, 0);
-}
-
-.err_msg {
-    margin-top: -5%;
-    width: 100%;
-    height: 30%;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
 /* 모달 성공 */
 
 .err_modal1 {
@@ -186,7 +187,7 @@ footer {
     display:flex;
     flex-direction: column;
     cursor: default;
-    transform: translate(85%, 40%);
+    transform: translate(85%, 0);
 }
 
 .err_msg1 {
@@ -198,7 +199,7 @@ footer {
 }
 
 /* 모달 */
-.modal { 
+.modal{ 
     position:absolute; 
     width:100%; 
     height:100%; 
@@ -208,7 +209,7 @@ footer {
     display:none;
   }
 
-.modal_content {
+.modal_content{
     width:1000px; height:700px;
     background:#eeeeee; border-radius:10px;
     position:relative; top:20%; left:30%;
@@ -219,12 +220,11 @@ footer {
     display:flex;
     flex-direction: column;
     cursor: default;
-    transform: translate(21%,5%);
 }
 
 .modal_title {
     height: 50px;
-    padding-top: 10px;
+    margin-bottom: 10px;
     font-weight: bold;
     font-size: 2rem;
     color: #616161;
@@ -238,7 +238,6 @@ footer {
 }
 
 .order_image {
-    background-color: wheat;
     width: 30%;
 }
 
@@ -257,12 +256,12 @@ footer {
 .modal_button {
     width: 100%;
     height: 30%;
+    margin-top: 5%;
     display: flex;
     justify-content: space-between;
 }
 
 .button_body {
-    padding-top: 3%;
     width: 15%;
     height: 100px;
     margin: auto;

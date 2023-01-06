@@ -14,11 +14,9 @@ function show_review() {
                 let nickname = rows[i]['nickname'];
                 let star = rows[i]['star'];
                 let comment = rows[i]['comment'];
-
                 let output = '';
                 for (let j = 0; j < star; j++) {
                      output += "★"
-                    console.log(star)
                 }
 
                 let temp_html = `

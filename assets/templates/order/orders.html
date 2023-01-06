@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../static/css/order/order.css" rel="stylesheet" type="text/css" />
+    <script defer type="text/javascript" src="../../static/JS/order/order.js"></script>
+    <script defer type="text/javascript" src="../../static/JS/logout.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        일석삼조(세탁물 신청)
+        <nav>
+            <button class="btn_out" onclick="logout_click()">
+                로그아웃
+            </button>
+        </nav>
+    </header>
+    <div class="modal">
+        <div class="modal_content">
+            <div class="modal_title">
+                라쿤표 세탁 신청서
+            </div>
+            <div class="modal_top">
+                <form method="post" enctype="multipart/form-data"></form>
+                <div class="order_image">
+                    <div class="image">
+                        <div class="button">
+                            <label for="chooseFile">
+                                이미지 등록
+                            </label>
+                        </div>
+                        <input type="file" id="chooseFile" name="chooseFile" accept="image/*">
+                    </div>
+                </div>
+                <div class="order_content">
+                    <div class="content_body">
+                        이름 : <input id="name" class="input">
+                    </div>
+                    <div class="content_body">
+                        주소 : <input id="address" class="input">
+                    </div>
+                    <div class="content_body">
+                        요청 내용 : <input id="request_comment" class="input">
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="modal_button">
+                <div class="button_body">
+                    <button onclick="create_orders()" class="button_content">
+                        신청 하기
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="owner-body">
+        <div id="body_top" class="body-top">
+           
+        </div>
+        <div class="body-bottom">
+            <div onclick="modal_open1()" class="order-button">
+                세탁물 신청
+            </div>
+            <div onclick="location.href='myorder_id.html'" class="order-button">
+                신청 목록 조회
+            </div>
+            <div onclick="location.href='http://localhost:5000/reviews'" class="order-button">
+                리뷰
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright ©2022 . All rights reserved.
+    </footer>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</body>
+
+</html>

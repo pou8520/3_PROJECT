@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Review.init({
     star: DataTypes.STRING,
     nickname: DataTypes.STRING,
-    comment: DataTypes.STRING
+    comment: DataTypes.STRING,
+    title: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Review',
