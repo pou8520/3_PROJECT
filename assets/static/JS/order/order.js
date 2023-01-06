@@ -77,9 +77,6 @@ function show_orders(){
                                             이름 : ${nickname}
                                         </div>
                                         <div class="content_body">
-                                            전화번호 : 456
-                                        </div>
-                                        <div class="content_body">
                                             주소 : ${address}
                                         </div>
                                         <div class="content_body">

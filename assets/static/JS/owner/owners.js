@@ -2,6 +2,17 @@ $(document).ready(function () {
     show_orders();
 });
 
+// 세탁물 등록시 모달
+function modal_open1() { 
+    $(`.modal`).fadeIn();
+
+    $(document).mouseup(function (e) {
+        if($(`.modal`).has(e.target).length === 0) {
+            $(`.modal`).hide();
+        };
+    });
+};
+
 // 세탁물 조회 모달
 function modal_open(i) { 
     $(`.modal_${i}`).fadeIn();
@@ -35,6 +46,7 @@ function show_orders(){
 
                 
                 let temp_html = `
+
                         <div onclick="modal_open(${i})" class="order-content">
                             <div class="content-left">
                                 <div class="order-name">
@@ -65,9 +77,6 @@ function show_orders(){
                                             이름 : ${nickname}
                                         </div>
                                         <div class="content_body">
-                                            전화번호 : 456
-                                        </div>
-                                        <div class="content_body">
                                             주소 : ${address}
                                         </div>
                                         <div class="content_body">
@@ -77,24 +86,14 @@ function show_orders(){
                                 </div>
                                 <div class="modal_button">
                                     <div class="button_body">
-                                        <button value="수거중" onclick="update_status(this,${order_id});"  class="button_content">
-                                            수거중
+                                        <button value="수정" onclick="update_orders_model(${i},${order_id},'${address}','${content}','${nickname}');"  class="button_content">
+                                            수정
                                         </button>
                                     </div>
                                     <div class="button_body">
-                                    <button value="수거 완료" onclick="update_status(this,${order_id});"  class="button_content">
-                                        수거 완료
-                                    </button>
-                                    </div>
-                                    <div class="button_body">
-                                    <button value="배송중" onclick="update_status(this,${order_id});"  class="button_content">
-                                        배송중
-                                    </button>
-                                    </div>
-                                    <div class="button_body">
-                                    <button value="배송 완료" onclick="update_status(this,${order_id});"  class="button_content">
-                                        배송 완료
-                                    </button>
+                                        <button value="삭제" onclick="delete_order(${order_id})"  class="button_content">
+                                            삭제
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -106,20 +105,116 @@ function show_orders(){
     });
 };
 
-// 상태 수정
-function update_status(status,order_id) {
-    const value = $(status).val();
-    console.log(value);
-    console.log(order_id)
+// 세탁물 등록
+function create_orders() {
+    const name = $("#name").val();
+    const address = $("#address").val();
+    const request_comment = $("#request_comment").val();
+    const image = $('input[name="chooseFile"]').get(0).files[0];
+    const formData = new FormData();
+    let token = localStorage.getItem('token') || '';
+
+    formData.append('nickname', name);
+    formData.append('address', address);
+    formData.append('content', request_comment);
+    formData.append('image', image);
+
+    $.ajax({
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        },
+        type: "POST",
+        url: "/api/orders",
+        enctype: "multipart/form-data",
+        processData: false,
+        contentType: false,
+        data: formData ,
+        success: function (response) {
+            window.location.reload();
+        }    
+    });
+};
+
+// 세탁물 수정
+function update_orders(order_id) {
+    const name = $("#name").val();
+    const address = $("#address").val();
+    const request_comment = $("#request_comment").val();
+    const image = $('input[name="chooseFile"]').get(0).files[0];
+    const formData = new FormData();
+
+    formData.append('nickname', name);
+    formData.append('address', address);
+    formData.append('content', request_comment);
+    formData.append('image', image);
 
     $.ajax({
         type: "PATCH",
-        url: `/api/owners/step/${order_id}`,
-        data: {
-            "value_give": value,
-        },
-        dataType: "json",
+        url: `/api/orders/${order_id}`,
+        enctype: "multipart/form-data",
+        processData: false,
+        contentType: false,
+        data: formData,
         success: function (response) {
+            window.location.reload();
+        },
+    });
+
+}
+
+
+// 세탁물 수정 model
+function update_orders_model(modal_id, order_id, address, content, nickname) {
+    let a = $(`#${modal_id}`)
+    a.empty();
+
+    let temp_html = `
+                    <div class="modal_title">
+                        라쿤표 세탁 신청서
+                    </div>
+                    <div class="modal_top">
+                        <form method="post" enctype="multipart/form-data"></form>
+                            <div class="order_image">
+                                <div class="image">
+                                        <div class="button">
+                                            <label for="chooseFile">
+                                                이미지 등록
+                                            </label>
+                                        </div>
+                                        <input type="file" id="chooseFile" name="chooseFile" accept="image/*">
+                                </div>
+                            </div>
+                            <div class="order_content">
+                                <div class="content_body">
+                                    이름 : <input value="${nickname}" id="name" class="input">
+                                </div>
+                                <div class="content_body">
+                                    주소 : <input value="${address}" id="address" class="input">
+                                </div>
+                                <div class="content_body">
+                                    요청 내용 : <input value="${content}" id="request_comment" class="input">
+                                </div>
+                            </div>
+                        </form>
+                    </div>    
+                    <div class="modal_button">
+                        <div class="button_body">
+                            <button onclick="update_orders(${order_id})" class="button_content">
+                                수정
+                            </button>
+                        </div>
+                    </div>
+                    `
+    a.append(temp_html)
+}
+
+// 세탁물 삭제 
+function delete_order(order_id) {
+    $.ajax({
+        type: "DELETE",
+        url: `/api/orders/${order_id}`,
+        success: function (response) {
+            console.log(response)
             window.location.reload();
         },
     });
